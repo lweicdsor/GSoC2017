@@ -153,14 +153,14 @@ dataset_MHEALTH <- function() {
   n <- matrix(suppressWarnings(as.numeric(n)), nrow = nrow(n))
   n <- na.omit(n)
   #split training and testing data
-  num_p <- round(nrow(p)/2)
-  num_n <- round(nrow(n)/2)
-  train_x <- rbind(p[1:num_p, ], n[1:num_n, ])
-  test_x <- rbind(p[(num_p+1):nrow(p), ], n[(num_n+1):nrow(n), ])
-  train_y <- rbind(matrix(1, num_p,1), matrix(0, num_n,1))
-  test_y <- rbind(matrix(1, nrow(p)-num_p, 1), matrix(0, nrow(n)-num_n, 1))
+  num.p <- round(nrow(p)/2)
+  num.n <- round(nrow(n)/2)
+  train.x <- rbind(p[1:num.p, ], n[1:num.n, ])
+  test.x <- rbind(p[(num.p+1):nrow(p), ], n[(num.n+1):nrow(n), ])
+  train.y <- rbind(matrix(1, num.p,1), matrix(0, num.n,1))
+  test.y <- rbind(matrix(1, nrow(p)-num.p, 1), matrix(0, nrow(n)-num.n, 1))
   # form data
-  MHEALTH <- list("train_x" = train_x, "train_y" = train_y, "test_x" = test_x, "test_y" = test_y)
+  MHEALTH <- list("train.x" = train.x, "train.y" = train.y, "test.x" = test.x, "test.y" = test.y)
   # save data
   devtools::use_data(MHEALTH)
 }
